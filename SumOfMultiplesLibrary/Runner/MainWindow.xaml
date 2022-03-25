@@ -1,0 +1,51 @@
+﻿<Window x:Class="Runner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Black">
+            <StackPanel Orientation="Horizontal" Margin="25">
+                <TextBlock Margin="2" Text="Limit" Width="50"/>
+                <TextBox Name="InputValue" Margin="2" MinWidth="100" MaxWidth="400" TextWrapping="Wrap" PreviewTextInput="NumberValidationTextBox"/>
+                <Button Name="SumOfMultiples" Content="Sum Of Multiple" Margin="2" MinWidth="100" IsEnabled="{Binding ElementName=InputValue, Path=Text.Length}" Click="SumOfMultiples_Click"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Black">
+            <StackPanel Orientation="Horizontal" Margin="25">
+                <TextBlock Margin="2" Text="Input" Width="50"/>
+                <TextBox Name="StringInput" Margin="2" MinWidth="100" MaxWidth="400" TextWrapping="Wrap"/>
+                <Button Name="SequenceAnalysisBtn" Content="Sequence Analysis" Margin="2" MinWidth="100" IsEnabled="{Binding ElementName=StringInput, Path=Text.Length}" Click="SequenceAnalysis_Click"/>
+            </StackPanel>
+        </Border>
+
+
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Black">
+            <StackPanel  Orientation="Horizontal" Margin="25" >
+                <TextBlock Margin="2" Text="Output" Width="50"/>
+                <TextBox Name="StringOutput" Margin="2" MinWidth="250" IsReadOnly="True" 
+                         MaxWidth="400" TextWrapping="Wrap"
+                         Background="LightGreen" FontWeight="DemiBold"/>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="2" Text="Note : Please enter input value to enable the buttons" Width="400"/>
+
+    </Grid>
+</Window>
